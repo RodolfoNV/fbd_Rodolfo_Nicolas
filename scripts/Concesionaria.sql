@@ -77,7 +77,7 @@ values
 ('Direccion 9','email8@example.com','1928653','reporter'),
 ('Direccion 10','email9@example.com','8964678','admin');
 
-INSERT INTO Auto_Vendido(
+INSERT INTO Autos(
     Marca,
     Modelo,
     Año,
