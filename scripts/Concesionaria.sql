@@ -75,8 +75,7 @@ values
 ('Direccion 7','email6@example.com','1235532','admin'),
 ('Direccion 8','email7@example.com','9864289','usuario'),
 ('Direccion 9','email8@example.com','1928653','reporter'),
-('Direccion 10','email9@example.com','8964678','admin')
-);
+('Direccion 10','email9@example.com','8964678','admin');
 
 INSERT INTO Auto_Vendido(
     Marca,
@@ -98,4 +97,5 @@ INSERT INTO Auto_Vendido(
     ('Lamborghini','Huracan','2022','Deportivo','Verde','V10','LBH2022HRCN','Automatica','338.577 €','ABC-1234','Nuevo','Gasolina','En las cuatro ruedas','0 '),
     ('Ford','F_150','2024','Camioneta','Azul','V6','FRD2024F150','Automática','$85,450','XYZ-5678','Nuevo','Gasolina','En las cuatro ruedas','0 '),
     ('Ferrari','LaFerrari','2022','Hibrido','Rojo','V12 de 6262 CC','FRR2013LFRR','Automática','1.3 millones de €','FLF-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('Ford','Mustang','2024','Deportivo','Negro','V8','FRD2024MSTG','Automática','$30,920','FGMT-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
     ()
