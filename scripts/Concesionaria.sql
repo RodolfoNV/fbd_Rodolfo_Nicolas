@@ -106,3 +106,27 @@ INSERT INTO Autos(
     ('Maserati', 'MC20', '2022', 'Supercar', 'Varios colores disponibles', '3.0L V6', 'MSR2022MC', 'Automática', '$242,995', 'MST-1234', 'Nuevo', 'Gasolina', 'Tracción trasera', '0'),
     ('Porsche', '911 Spyder', '2022', 'Supercar', 'Varios colores disponibles', '3.0L H6', 'PSE911SP', 'Automática', '$290,000', 'PSE-1234', 'Nuevo', 'Gasolina', 'Tracción en las cuatro ruedas', '0');
    
+   INSERT INTO Cliente(
+   ID_Cliente,
+   Nombre,
+   Apellido,
+   Telefono
+   )
+   
+   VALUES
+   ('12346', 'John', 'Doe', '1235679'),
+   ('12347', 'Jane', 'Smith', '1235680'),
+   ('12348', 'Robert', 'Johnson', '1235681'),
+   ('12349', 'Michael', 'Williams', '1235682'),
+   ('12350', 'Sarah', 'Jones', '1235683'),
+   ('12351', 'Emma', 'Brown', '1235684'),
+   ('12352', 'Emily', 'Davis', '1235685'),
+   ('12353', 'Daniel', 'Miller', '1235686'),
+   ('12354', 'David', 'Wilson', '1235687'),
+   ('12355', 'Olivia', 'Moore', '1235688')
+   
+   
+
+   
+   
+   
