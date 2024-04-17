@@ -97,4 +97,5 @@ INSERT INTO Auto_Vendido(
     values
     ('Lamborghini','Huracan','2022','Deportivo','Verde','V10','LBH2022HRCN','Automatica','338.577 €','ABC-1234','Nuevo','Gasolina','En las cuatro ruedas','0 '),
     ('Ford','F_150','2024','Camioneta','Azul','V6','FRD2024F150','Automática','$85,450','XYZ-5678','Nuevo','Gasolina','En las cuatro ruedas','0 '),
-    
+    ('Ferrari','LaFerrari','2022','Hibrido','Rojo','V12 de 6262 CC','FRR2013LFRR','Automática','1.3 millones de €','FLF-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ()
