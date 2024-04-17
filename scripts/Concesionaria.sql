@@ -66,7 +66,7 @@ Telefono,
 rol
 )
 values 
-('Direccion 1','email@example.com',' 111111', 'usuario'),
+('Direccion 1','email@example.com',' 1111191', 'usuario'),
 ('Direccion 2','email1@example.com','0000001','admin'),
 ('Direccion 3','email2@example.com','1234587','reporter'),
 ('Direccion 4','email3@example.com','02345653','usuario'),
@@ -93,9 +93,16 @@ INSERT INTO Auto_Vendido(
     Tracción,
     Kilometraje
     )
-    values
-    ('Lamborghini','Huracan','2022','Deportivo','Verde','V10','LBH2022HRCN','Automatica','338.577 €','ABC-1234','Nuevo','Gasolina','En las cuatro ruedas','0 '),
-    ('Ford','F_150','2024','Camioneta','Azul','V6','FRD2024F150','Automática','$85,450','XYZ-5678','Nuevo','Gasolina','En las cuatro ruedas','0 '),
-    ('Ferrari','LaFerrari','2022','Hibrido','Rojo','V12 de 6262 CC','FRR2013LFRR','Automática','1.3 millones de €','FLF-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
-    ('Ford','Mustang','2024','Deportivo','Negro','V8','FRD2024MSTG','Automática','$30,920','FGMT-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
-    ()
+    
+    VALUES
+    ('Lamborghini','Huracan','2022','Deportivo','Varios colores disponibles','V10','LBH2022HRCN','Automatica','338.577 €','LMH-1234','Nuevo','Gasolina','En las cuatro ruedas','0 '),
+    ('Ford','F_150','2024','Camioneta','Varios colores disponibles','V6','FRD2024F150','Automática','$85,450','XYZ-5678','Nuevo','Gasolina','En las cuatro ruedas','0 '),
+    ('Ferrari','LaFerrari','2022','Hibrido','Varios colores disponibles','V12 de 6262 CC','FRR2013LFRR','Automática','1.3 millones de €','FLF-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('Ford','Mustang','2024','Deportivo','Varios colores disponibles','V8','FRD2024MSTG','Automática','$30,920','FGMT-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('Koenigsegg','Gamera','2022','Híbrido','Varios colores disponibles','HV8','KNG2022GMR','Automática','2 millones de €','KGA-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('McLaren','750S','2024','Deportivo','Varios colores disponibles','V8','MCL2024750S','Automática','US$225,0002','MCS-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('Audi','R8','2023','Deportivo','Varios colores disponibles','5.2 L (5,204 cm3)','AUD2023R8','Automática de doble embrague de 7 velocidades',' $161,395','AUR-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('Bugatti','Chiron','2022','Deportivo','Varios colores disponibles','8.0 litros y W16','BGT2022CHR','Automática','$3,300,000','BGC-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('Maserati', 'MC20', '2022', 'Supercar', 'Varios colores disponibles', '3.0L V6', 'MSR2022MC', 'Automática', '$242,995', 'MST-1234', 'Nuevo', 'Gasolina', 'Tracción trasera', '0'),
+    ('Porsche', '911 Spyder', '2022', 'Supercar', 'Varios colores disponibles', '3.0L H6', 'PSE911SP', 'Automática', '$290,000', 'PSE-1234', 'Nuevo', 'Gasolina', 'Tracción en las cuatro ruedas', '0');
+   
