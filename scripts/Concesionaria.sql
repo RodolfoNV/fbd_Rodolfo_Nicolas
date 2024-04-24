@@ -18,17 +18,17 @@ CREATE TABLE Autos (
     Cilindraje VARCHAR(30) NOT NULL,
     ID_Vehiculo VARCHAR(30) NOT NULL,
     Transmisión VARCHAR(30) NOT NULL,
-    Precio DECIMAL(9,2),
+    Precio DECIMAL(9,2) NOT NULL,
     Placa VARCHAR(10) NOT NULL,
     Estado VARCHAR(10) NOT NULL,
     Combustible VARCHAR(10) NOT NULL,
-    Tracción VARCHAR(10) NOT NULL,
-    Kilometraje INT,
+    Tracción VARCHAR(50) NOT NULL,
+    Kilometraje INT NOT NULL,
     PRIMARY KEY (ID_Vehiculo)
 );
 
 CREATE TABLE Cliente (
-    CLIENTE_ID INT NOT NULL,
+    CLIENTE_ID INT NOT NULL auto_increment,
     Nombre VARCHAR(30) NOT NULL,
     Apellido VARCHAR(30) NOT NULL,
     Telefono CHAR(10) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE Cliente (
 );
 
 CREATE TABLE Empleado (
-    ID_Empleado INT NOT NULL,
+    ID_Empleado INT NOT NULL auto_increment,
     Nombre VARCHAR(30) NOT NULL,
     Direccion VARCHAR(100),
     Correo VARCHAR(50),
@@ -44,7 +44,7 @@ CREATE TABLE Empleado (
     PRIMARY KEY (ID_Empleado)
 );
 CREATE TABLE Auto_Vendido (
-    venta_id INT NOT NULL,
+    venta_id INT NOT NULL auto_increment,
     auto_id VARCHAR(30) NOT NULL,
     id_propietario INT NOT NULL,
     id_concesionaria INT,
@@ -95,38 +95,35 @@ INSERT INTO Autos(
     )
     
     VALUES
-    ('Lamborghini','Huracan','2022','Deportivo','Varios colores disponibles','V10','LBH2022HRCN','Automatica','338.577 €','LMH-1234','Nuevo','Gasolina','En las cuatro ruedas','0 '),
-    ('Ford','F_150','2024','Camioneta','Varios colores disponibles','V6','FRD2024F150','Automática','$85,450','XYZ-5678','Nuevo','Gasolina','En las cuatro ruedas','0 '),
-    ('Ferrari','LaFerrari','2022','Hibrido','Varios colores disponibles','V12 de 6262 CC','FRR2013LFRR','Automática','1.3 millones de €','FLF-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
-    ('Ford','Mustang','2024','Deportivo','Varios colores disponibles','V8','FRD2024MSTG','Automática','$30,920','FGMT-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
-    ('Koenigsegg','Gamera','2022','Híbrido','Varios colores disponibles','HV8','KNG2022GMR','Automática','2 millones de €','KGA-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
-    ('McLaren','750S','2024','Deportivo','Varios colores disponibles','V8','MCL2024750S','Automática','US$225,0002','MCS-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
-    ('Audi','R8','2023','Deportivo','Varios colores disponibles','5.2 L (5,204 cm3)','AUD2023R8','Automática de doble embrague de 7 velocidades',' $161,395','AUR-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
-    ('Bugatti','Chiron','2022','Deportivo','Varios colores disponibles','8.0 litros y W16','BGT2022CHR','Automática','$3,300,000','BGC-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
-    ('Maserati', 'MC20', '2022', 'Supercar', 'Varios colores disponibles', '3.0L V6', 'MSR2022MC', 'Automática', '$242,995', 'MST-1234', 'Nuevo', 'Gasolina', 'Tracción trasera', '0'),
-    ('Porsche', '911 Spyder', '2022', 'Supercar', 'Varios colores disponibles', '3.0L H6', 'PSE911SP', 'Automática', '$290,000', 'PSE-1234', 'Nuevo', 'Gasolina', 'Tracción en las cuatro ruedas', '0');
+    ('Lamborghini','Huracan','2022','Deportivo','Varios colores disponibles','V10','LBH2022HRCN','Automatica',78338.57,'LMH-1234','Nuevo','Gasolina','cuatro por cuatro','0 '),
+    ('Ford','F_150','2024','Camioneta','Varios colores disponibles','V6','FRD2024F150','Automática',88954.50,'XYZ-5678','Nuevo','Gasolina','En las cuatro ruedas','0 '),
+    ('Ferrari','LaFerrari','2022','Hibrido','Varios colores disponibles','V12 de 6262 CC','FRR2013LFRR','Automática',130000.00,'FLF-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('Ford','Mustang','2024','Deportivo','Varios colores disponibles','V8','FRD2024MSTG','Automática',498309.20,'FGMT-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('Koenigsegg','Gamera','2022','Híbrido','Varios colores disponibles','HV8','KNG2022GMR','Automática',2000000.00,'KGA-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('McLaren','750S','2024','Deportivo','Varios colores disponibles','V8','MCL2024750S','Automática',22500.02,'MCS-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('Audi','R8','2023','Deportivo','Varios colores disponibles','5.2 L (5,204 cm3)','AUD2023R8','Automática',169013.95,'AUR-1234','Nuevo','Gasolina','Traccion 4 x 4','0'),
+    ('Bugatti','Chiron','2022','Deportivo','Varios colores disponibles','8.0 litros y W16','BGT2022CHR','Automática',339000.00,'BGC-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('Maserati', 'MC20', '2022', 'Supercar', 'Varios colores disponibles', '3.0L V6', 'MSR2022MC', 'Automática', 232429.95, 'MST-1234', 'Nuevo', 'Gasolina', 'Tracción trasera', '0'),
+    ('Porsche', '911 Spyder', '2022', 'Supercar', 'Varios colores disponibles', '3.0L H6', 'PSE911SP', 'Automática', 290000.00, 'PSE-1234', 'Nuevo', 'Gasolina', 'Tracción en las cuatro ruedas', '0');
    
    INSERT INTO Cliente(
-   ID_Cliente,
    Nombre,
    Apellido,
    Telefono
    )
    
    VALUES
-   ('12346', 'John', 'Doe', '1235679'),
-   ('12347', 'Jane', 'Smith', '1235680'),
-   ('12348', 'Robert', 'Johnson', '1235681'),
-   ('12349', 'Michael', 'Williams', '1235682'),
-   ('12350', 'Sarah', 'Jones', '1235683'),
-   ('12351', 'Emma', 'Brown', '1235684'),
-   ('12352', 'Emily', 'Davis', '1235685'),
-   ('12353', 'Daniel', 'Miller', '1235686'),
-   ('12354', 'David', 'Wilson', '1235687'),
-   ('12355', 'Olivia', 'Moore', '1235688')
-   
+   ( 'John', 'Doe', '1235679'),
+   ( 'Jane', 'Smith', '1235680'),
+   ( 'Robert', 'Johnson', '1235681'),
+   ( 'Michael', 'Williams', '1235682'),
+   ( 'Sarah', 'Jones', '1235683'),
+   ( 'Emma', 'Brown', '1235684'),
+   ( 'Emily', 'Davis', '1235685'),
+   ( 'Daniel', 'Miller', '1235686'),
+   ( 'David', 'Wilson', '1235687'),
+   ( 'Olivia', 'Moore', '1235688')
    
 
-   
    
    
