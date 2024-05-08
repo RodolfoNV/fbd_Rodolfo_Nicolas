@@ -122,8 +122,31 @@ INSERT INTO Autos(
    ( 'Emily', 'Davis', '1235685'),
    ( 'Daniel', 'Miller', '1235686'),
    ( 'David', 'Wilson', '1235687'),
-   ( 'Olivia', 'Moore', '1235688')
+   ( 'Olivia', 'Moore', '1235688');
    
+INSERT INTO Empleado (Nombre, Direccion, Correo, Telefono) 
+   VALUES 
+('Juan Perez', 'Calle 123, Ciudad ABC', 'juan@example.com', '1234567890'),
+('María López', 'Avenida XYZ, Pueblo DEF', 'maria@example.com', '0987654321'),
+('Carlos García', 'Carrera 456, Villa GHI', 'carlos@example.com', '4567890123'),
+('Ana Martínez', 'Plaza Principal, Ciudad JKL', 'ana@example.com', '7890123456'),
+('Pedro Sanchez', 'Calle Mayor, Pueblo MNO', 'pedro@example.com', '2345678901'),
+('Laura Rodríguez', 'Avenida Central, Villa PQR', 'laura@example.com', '5678901234'),
+('David Fernandez', 'Paseo Marítimo, Ciudad STU', 'david@example.com', '8901234567'),
+('Sofía Gómez', 'Callejón 789, Pueblo VWX', 'sofia@example.com', '9012345678'),
+('Javier Ruiz', 'Avenida Sur, Villa YZA', 'javier@example.com', '3456789012'),
+('Elena Hernández', 'Calle Norte, Ciudad BCD', 'elena@example.com', '6789012345');
 
-   
+
+SELECT * FROM Consecionaria;
+SELECT * FROM Autos;
+SELECT * FROM Cliente;
+SELECT * FROM Empleado;
+SELECT * FROM Auto_Vendido;
+
+SELECT id_consecionaria, Dirección,Correo,Telefono,rol FROM Consecionaria;
+SELECT  Marca, Modelo, Año, Tipo, Color, Cilindraje,ID_Vehiculo,Transmisión,Precio,Placa,Estado,Combustible,Tracción,Kilometraje FROM Autos;
+SELECT CLIENTE_ID, Nombre, Apellido, Telefono  FROM Cliente;
+SELECT ID_Empleado, Nombre, Direccion, Correo, Telefono FROM Empleado;
+SELECT venta_id, auto_id, id_propietario, id_concesionaria, ID_Empleado, Fecha_venta, Precio_venta,Metodo_pago FROM Auto_Vendido;
    
