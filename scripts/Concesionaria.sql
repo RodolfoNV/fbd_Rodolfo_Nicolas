@@ -1,22 +1,25 @@
+-- Active: 1716830926481@@127.0.0.1@3306@consecionaria
+
 create database consecionaria;
 
-create table if not exists Consecionaria( 
-id_consecionaria int not null auto_increment,
-Dirección VARCHAR (150) NOT NULL,
-Correo VARCHAR (50) NOT NULL,
-Telefono CHAR (13),
-rol ENUM('admin', 'usuario','reporter'),
-PRIMARY KEY(id_consecionaria)
+CREATE TABLE Concesionaria (
+    id_concesionaria INT AUTO_INCREMENT,
+    Direccion VARCHAR(150) NOT NULL,
+    Correo VARCHAR(50) NOT NULL,
+    Telefono CHAR(15) NOT NULL,
+    rol ENUM ('admin','usuario','reporter') NOT NULL,
+    PRIMARY KEY(id_concesionaria)
 );
 
+
 CREATE TABLE Autos (
+    ID_Vehiculo INT AUTO_INCREMENT,
     Marca VARCHAR(30) NOT NULL,
     Modelo VARCHAR(30) NOT NULL,
-    Año YEAR,
+    Año YEAR NOT NULL,
     Tipo VARCHAR(30) NOT NULL,
     Color VARCHAR(30) NOT NULL,
     Cilindraje VARCHAR(30) NOT NULL,
-    ID_Vehiculo VARCHAR(30) NOT NULL,
     Transmisión VARCHAR(30) NOT NULL,
     Precio DECIMAL(9,2) NOT NULL,
     Placa VARCHAR(10) NOT NULL,
@@ -28,7 +31,7 @@ CREATE TABLE Autos (
 );
 
 CREATE TABLE Cliente (
-    CLIENTE_ID INT NOT NULL auto_increment,
+    CLIENTE_ID int auto_increment,
     Nombre VARCHAR(30) NOT NULL,
     Apellido VARCHAR(30) NOT NULL,
     Telefono CHAR(10) NOT NULL,
@@ -36,7 +39,7 @@ CREATE TABLE Cliente (
 );
 
 CREATE TABLE Empleado (
-    ID_Empleado INT NOT NULL auto_increment,
+    ID_Empleado INT AUTO_INCREMENT,
     Nombre VARCHAR(30) NOT NULL,
     Direccion VARCHAR(100),
     Correo VARCHAR(50),
@@ -44,8 +47,8 @@ CREATE TABLE Empleado (
     PRIMARY KEY (ID_Empleado)
 );
 CREATE TABLE Auto_Vendido (
-    venta_id INT NOT NULL auto_increment,
-    auto_id VARCHAR(30) NOT NULL,
+    venta_id INT auto_increment,
+    auto_id INT NOT NULL,
     id_propietario INT NOT NULL,
     id_concesionaria INT,
     ID_Empleado INT NOT NULL,
@@ -77,40 +80,21 @@ values
 ('Direccion 9','email8@example.com','1928653','reporter'),
 ('Direccion 10','email9@example.com','8964678','admin');
 
-INSERT INTO Autos(
-    Marca,
-    Modelo,
-    Año,
-    Tipo,
-    Color,
-    Cilindraje,
-    ID_Vehiculo,
-    Transmisión,
-    Precio,
-    Placa,
-    Estado,
-    Combustible,
-    Tracción,
-    Kilometraje
-    )
+INSERT INTO Autos(Marca,Modelo,Año,Tipo,Color,Cilindraje,ID_Vehiculo,Transmisión,Precio,Placa,Estado,Combustible,Tracción,Kilometraje)
     
     VALUES
-    ('Lamborghini','Huracan','2022','Deportivo','Varios colores disponibles','V10','LBH2022HRCN','Automatica',78338.57,'LMH-1234','Nuevo','Gasolina','cuatro por cuatro','0 '),
-    ('Ford','F_150','2024','Camioneta','Varios colores disponibles','V6','FRD2024F150','Automática',88954.50,'XYZ-5678','Nuevo','Gasolina','En las cuatro ruedas','0 '),
-    ('Ferrari','LaFerrari','2022','Hibrido','Varios colores disponibles','V12 de 6262 CC','FRR2013LFRR','Automática',130000.00,'FLF-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
-    ('Ford','Mustang','2024','Deportivo','Varios colores disponibles','V8','FRD2024MSTG','Automática',498309.20,'FGMT-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
-    ('Koenigsegg','Gamera','2022','Híbrido','Varios colores disponibles','HV8','KNG2022GMR','Automática',2000000.00,'KGA-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
-    ('McLaren','750S','2024','Deportivo','Varios colores disponibles','V8','MCL2024750S','Automática',22500.02,'MCS-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
-    ('Audi','R8','2023','Deportivo','Varios colores disponibles','5.2 L (5,204 cm3)','AUD2023R8','Automática',169013.95,'AUR-1234','Nuevo','Gasolina','Traccion 4 x 4','0'),
-    ('Bugatti','Chiron','2022','Deportivo','Varios colores disponibles','8.0 litros y W16','BGT2022CHR','Automática',339000.00,'BGC-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
-    ('Maserati', 'MC20', '2022', 'Supercar', 'Varios colores disponibles', '3.0L V6', 'MSR2022MC', 'Automática', 232429.95, 'MST-1234', 'Nuevo', 'Gasolina', 'Tracción trasera', '0'),
-    ('Porsche', '911 Spyder', '2022', 'Supercar', 'Varios colores disponibles', '3.0L H6', 'PSE911SP', 'Automática', 290000.00, 'PSE-1234', 'Nuevo', 'Gasolina', 'Tracción en las cuatro ruedas', '0');
+    ('Lamborghini','Huracan','2022','Deportivo','Varios colores disponibles','V10','Automatica',78338.57,'LMH-1234','Nuevo','Gasolina','cuatro por cuatro','0'),
+    ('Ford','F_150','2024','Camioneta','Varios colores disponibles','V6','Automática',88954.50,'XYZ-5678','Nuevo','Gasolina','En las cuatro ruedas','0 '),
+    ('Ferrari','LaFerrari','2022','Hibrido','Varios colores disponibles','V12','Automática',130000.00,'FLF-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('Ford','Mustang','2024','Deportivo','Varios colores disponibles','V8','Automática',498309.20,'FGMT-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('Koenigsegg','Gamera','2022','Híbrido','Varios colores disponibles','HV8','Automática',2000000.00,'KGA-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('McLaren','750S','2024','Deportivo','Varios colores disponibles','V8','Automática',22500.02,'MCS-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('Audi','R8','2023','Deportivo','Varios colores disponibles','V5,204','Automática',169013.95,'AUR-1234','Nuevo','Gasolina','Traccion 4 x 4','0'),
+    ('Bugatti','Chiron','2022','Deportivo','Varios colores disponibles','8.0L W16','Automática',339000.00,'BGC-1234','Nuevo','Gasolina','Tracción en las cuatro ruedas','0'),
+    ('Maserati','MC20','2022','Supercar','Varios colores disponibles','3.0L V6','Automática', 232429.95,'MST-1234', 'Nuevo', 'Gasolina', 'Tracción trasera', '0'),
+    ('Porsche','911 Spyder','2022','Supercar','Varios colores disponibles','3.0L H6','Automática', 290000.00, 'PSE-1234', 'Nuevo', 'Gasolina', 'Tracción en las cuatro ruedas', '0');
    
-   INSERT INTO Cliente(
-   Nombre,
-   Apellido,
-   Telefono
-   )
+   INSERT INTO Cliente(Nombre,Apellido,Telefono)
    
    VALUES
    ( 'John', 'Doe', '1235679'),
@@ -135,18 +119,117 @@ INSERT INTO Empleado (Nombre, Direccion, Correo, Telefono)
 ('David Fernandez', 'Paseo Marítimo, Ciudad STU', 'david@example.com', '8901234567'),
 ('Sofía Gómez', 'Callejón 789, Pueblo VWX', 'sofia@example.com', '9012345678'),
 ('Javier Ruiz', 'Avenida Sur, Villa YZA', 'javier@example.com', '3456789012'),
-('Elena Hernández', 'Calle Norte, Ciudad BCD', 'elena@example.com', '6789012345');
+('Elena cruz', 'Calle Norte, Ciudad BCD', 'elena@example.com', '6789012345');
 
 
-SELECT * FROM Consecionaria;
+-- Seleccionar todas las filas de cada tabla
+SELECT * FROM Concesionaria;
 SELECT * FROM Autos;
 SELECT * FROM Cliente;
 SELECT * FROM Empleado;
 SELECT * FROM Auto_Vendido;
 
-SELECT id_consecionaria, Dirección,Correo,Telefono,rol FROM Consecionaria;
-SELECT  Marca, Modelo, Año, Tipo, Color, Cilindraje,ID_Vehiculo,Transmisión,Precio,Placa,Estado,Combustible,Tracción,Kilometraje FROM Autos;
-SELECT CLIENTE_ID, Nombre, Apellido, Telefono  FROM Cliente;
+-- Seleccionar columnas específicas de cada tabla
+SELECT id_concesionaria, Direccion, Correo, Telefono, rol FROM Concesionaria;
+SELECT Marca, Modelo, Año, Tipo, Color, Cilindraje, ID_Vehiculo, Transmision, Precio, Placa, Estado, Combustible, Traccion, Kilometraje FROM Autos;
+SELECT CLIENTE_ID, Nombre, Apellido, Telefono FROM Cliente;
 SELECT ID_Empleado, Nombre, Direccion, Correo, Telefono FROM Empleado;
-SELECT venta_id, auto_id, id_propietario, id_concesionaria, ID_Empleado, Fecha_venta, Precio_venta,Metodo_pago FROM Auto_Vendido;
-   
+SELECT venta_id, auto_id, id_propietario, id_concesionaria, ID_Empleado, Fecha_venta, Precio_venta, Metodo_pago FROM Auto_Vendido;
+
+-- Seleccionar registros con condiciones específicas
+SELECT Nombre, Apellido FROM Cliente WHERE Apellido = 'Doe';
+
+-- Ordenar registros
+SELECT * FROM Autos ORDER BY Precio ASC;
+SELECT * FROM Cliente ORDER BY Nombre DESC;
+
+-- Contar registros en cada tabla
+SELECT COUNT(*) FROM Concesionaria;
+SELECT COUNT(*) FROM Autos;
+SELECT COUNT(*) FROM Cliente;
+SELECT COUNT(*) FROM Empleado;
+SELECT COUNT(*) FROM Auto_Vendido;
+
+-- Sumar valores en columnas específicas
+SELECT SUM(Precio) FROM Autos;
+SELECT SUM(Kilometraje) FROM Autos;
+
+-- Obtener valores máximo y mínimo en columnas específicas
+SELECT MAX(Precio), MIN(Precio) FROM Autos;
+SELECT MAX(Kilometraje), MIN(Kilometraje) FROM Autos;
+
+-- Inner joins entre tablas
+SELECT Concesionaria.id_concesionaria, Empleado.ID_Empleado
+FROM Concesionaria
+INNER JOIN Empleado ON Concesionaria.id_concesionaria = Empleado.ID_Empleado;
+
+SELECT Auto_Vendido.venta_id, Autos.ID_Vehiculo
+FROM Auto_Vendido
+INNER JOIN Autos ON Auto_Vendido.auto_id = Autos.ID_Vehiculo;
+
+-- Joins con condiciones específicas
+SELECT c.Nombre AS Cliente, a.Marca AS Auto
+FROM Cliente c
+JOIN Auto_Vendido av ON c.CLIENTE_ID = av.id_propietario
+JOIN Autos a ON av.auto_id = a.ID_Vehiculo
+WHERE a.Estado = 'Nuevo';
+
+SELECT e.Nombre AS Empleado, c.Direccion AS Concesionaria
+FROM Empleado e
+JOIN Concesionaria c ON e.ID_Empleado = c.id_concesionaria
+WHERE e.Correo IS NOT NULL;
+
+-- Subconsultas
+SELECT c.Nombre AS Cliente, c.Telefono
+FROM Cliente c
+WHERE c.Telefono > (
+    SELECT AVG(Telefono) FROM Cliente WHERE Apellido = c.Apellido
+);
+
+SELECT a.Marca AS Auto, a.Precio
+FROM Autos a
+WHERE a.Precio = (
+    SELECT MAX(Precio) FROM Autos WHERE Año = 2023
+);
+
+-- Agrupar resultados
+SELECT id_concesionaria, AVG(Precio) AS Precio_Medio
+FROM Autos
+GROUP BY id_concesionaria;
+
+-- Filtrar por año específico
+SELECT Marca, Modelo, Año
+FROM Autos
+WHERE YEAR(Año) = 2023;
+
+-- Unión de resultados
+SELECT Nombre, 'Cliente' AS Tipo
+FROM Cliente
+UNION
+SELECT Nombre, 'Empleado' AS Tipo
+FROM Empleado;
+
+-- Filtrar por patrón de dirección
+SELECT Marca, Direccion
+FROM Autos
+WHERE Direccion LIKE '%Calle%';
+
+-- Subconsultas NOT EXISTS
+SELECT Nombre
+FROM Empleado e
+WHERE NOT EXISTS (
+    SELECT 1 FROM Auto_Vendido WHERE ID_Empleado = e.ID_Empleado
+);
+
+-- Subconsultas EXISTS
+SELECT Direccion
+FROM Concesionaria c
+WHERE EXISTS (
+    SELECT 1 FROM Autos WHERE id_concesionaria = c.id_concesionaria
+);
+
+-- Paginación de resultados
+SELECT Nombre, Apellido
+FROM Cliente
+ORDER BY Nombre DESC
+OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY;
