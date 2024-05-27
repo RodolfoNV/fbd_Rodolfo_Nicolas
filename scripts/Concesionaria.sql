@@ -1,16 +1,18 @@
 -- Active: 1716830926481@@127.0.0.1@3306@consecionaria
 
-create database consecionaria;
+CREATE DATABASE concesionaria;
 
+USE concesionaria;
+
+-- Creación de las tablas
 CREATE TABLE Concesionaria (
     id_concesionaria INT AUTO_INCREMENT,
     Direccion VARCHAR(150) NOT NULL,
     Correo VARCHAR(50) NOT NULL,
     Telefono CHAR(15) NOT NULL,
-    rol ENUM ('admin','usuario','reporter') NOT NULL,
+    rol ENUM('admin', 'usuario', 'reporter') NOT NULL,
     PRIMARY KEY(id_concesionaria)
 );
-
 
 CREATE TABLE Autos (
     ID_Vehiculo INT AUTO_INCREMENT,
@@ -20,18 +22,18 @@ CREATE TABLE Autos (
     Tipo VARCHAR(30) NOT NULL,
     Color VARCHAR(30) NOT NULL,
     Cilindraje VARCHAR(30) NOT NULL,
-    Transmisión VARCHAR(30) NOT NULL,
+    Transmision VARCHAR(30) NOT NULL,
     Precio DECIMAL(9,2) NOT NULL,
     Placa VARCHAR(10) NOT NULL,
     Estado VARCHAR(10) NOT NULL,
     Combustible VARCHAR(10) NOT NULL,
-    Tracción VARCHAR(50) NOT NULL,
+    Traccion VARCHAR(50) NOT NULL,
     Kilometraje INT NOT NULL,
     PRIMARY KEY (ID_Vehiculo)
 );
 
 CREATE TABLE Cliente (
-    CLIENTE_ID int auto_increment,
+    CLIENTE_ID INT AUTO_INCREMENT,
     Nombre VARCHAR(30) NOT NULL,
     Apellido VARCHAR(30) NOT NULL,
     Telefono CHAR(10) NOT NULL,
@@ -46,8 +48,9 @@ CREATE TABLE Empleado (
     Telefono CHAR(10),
     PRIMARY KEY (ID_Empleado)
 );
+
 CREATE TABLE Auto_Vendido (
-    venta_id INT auto_increment,
+    venta_id INT AUTO_INCREMENT,
     auto_id INT NOT NULL,
     id_propietario INT NOT NULL,
     id_concesionaria INT,
@@ -56,12 +59,11 @@ CREATE TABLE Auto_Vendido (
     Precio_venta DECIMAL(9,2),
     Metodo_pago VARCHAR(30),
     PRIMARY KEY (venta_id),
-    FOREIGN KEY (id_concesionaria) REFERENCES Consecionaria(id_consecionaria),
+    FOREIGN KEY (id_concesionaria) REFERENCES Concesionaria(id_concesionaria),
     FOREIGN KEY (auto_id) REFERENCES Autos(ID_Vehiculo),
     FOREIGN KEY (id_propietario) REFERENCES Cliente(CLIENTE_ID),
     FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado)
 );
-
 INSERT INTO Consecionaria(
 Dirección,
 Correo,
