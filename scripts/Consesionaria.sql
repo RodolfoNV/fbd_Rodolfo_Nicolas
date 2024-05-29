@@ -1,7 +1,10 @@
 -- Active: 1716830926481@@127.0.0.1@3306@consecionaria
 
-
+CREATE DATABASE Consesionaria;
 -- Creación de las tablas
+USE Consesionaria
+
+
 CREATE TABLE IF NOT EXISTS Concesionaria  (
     id_concesionaria INT AUTO_INCREMENT PRIMARY KEY,
     Direccion VARCHAR(150) ,
@@ -19,12 +22,15 @@ CREATE TABLE IF NOT EXISTS Autos (
     id_color int REFERENCES color_auto(id_color),
     Color VARCHAR(30), -- rojo, verde
     Cilindraje VARCHAR(30),
-    Transmicion VARCHAR(30),
+    id_transmision VARCHAR REFERENCES transmision_auto(id_transmision),
+    Transmicion VARCHAR(30),-- manual, automatica, etc
     Precio DECIMAL(9,2),
     Placa VARCHAR(10),
-    Estado VARCHAR(10),
+    id_estado VARCHAR REFERENCES estado_auto(id_estado,)
+    Estado VARCHAR(10), -- nuevo, usado, etc
     Combustible VARCHAR(10),
-    Traccion VARCHAR(50),
+    id_traccion VARCHAR REFERENCES traccion_auto(id_traccion),
+    Traccion VARCHAR(50), -- Tracción en las cuatro ruedas, tracción trasera, tracción en las cuatro ruedas, tracción en las cuatro ruedas
     Kilometraje INT
 );
 
@@ -49,6 +55,7 @@ INSERT INTO color_auto(color) values
 ('negro'),
 ('blanco');
 
+
 UPDATE autos SET id_color = 1 WHERE `ID_Vehiculo` = 1;
 UPDATE autos SET id_color = 2 WHERE `ID_Vehiculo` = 2;
 UPDATE autos SET id_color = 3 WHERE `ID_Vehiculo` = 3;
@@ -59,6 +66,100 @@ UPDATE autos SET id_color = 7 WHERE `ID_Vehiculo` = 7;
 UPDATE autos SET id_color = 8 WHERE `ID_Vehiculo` = 8;
 UPDATE autos SET id_color = 9 WHERE `ID_Vehiculo` = 9;
 UPDATE autos SET id_color = 10 WHERE `ID_Vehiculo` = 10;
+
+ALTER Table autos add COLUMN id_transmision int REFERENCES transmision_auto(id_transmision);
+ALTER Table autos drop COLUMN Transmicion; 
+create table IF NOT EXISTS transmision_auto (
+    id_transmision INT AUTO_INCREMENT,
+    transmision VARCHAR(50),
+    PRIMARY KEY (id_transmision)
+);
+
+
+INSERT INTO transmision_auto (transmision) VALUES
+('Manual'),
+('Automática'),
+('CVT (Transmisión Variable Continua)'),
+('Automática de doble embrague'),
+('Automática de 8 velocidades'),
+('Automática de 10 velocidades'),
+('Semi-automática'),
+('Automática secuencial'),
+('Automática con convertidor de par'),
+('Transmisión manual automatizada');
+
+UPDATE autos SET id_transmision = 1 WHERE `ID_Vehiculo` = 1;
+UPDATE autos SET id_transmision = 2 WHERE `ID_Vehiculo` = 2;
+UPDATE autos SET id_transmision = 3 WHERE `ID_Vehiculo` = 3;
+UPDATE autos SET id_transmision = 4 WHERE `ID_Vehiculo` = 4;
+UPDATE autos SET id_transmision = 5 WHERE `ID_Vehiculo` = 5;
+UPDATE autos SET id_transmision = 6 WHERE `ID_Vehiculo` = 6;
+UPDATE autos SET id_transmision = 7 WHERE `ID_Vehiculo` = 7;
+UPDATE autos SET id_transmision = 8 WHERE `ID_Vehiculo` = 8;
+UPDATE autos SET id_transmision = 9 WHERE `ID_Vehiculo` = 9;
+UPDATE autos SET id_transmision = 10 WHERE `ID_Vehiculo` = 10;
+
+ALTER TABLE autos ADD COLUMN id_estado INT REFERENCES estado_auto(id_estado);
+ALTER TABLE autos DROP COLUMN Estado;
+
+
+CREATE TABLE IF NOT EXISTS estado_auto (
+    id_estado INT AUTO_INCREMENT,
+    estado VARCHAR(30),
+    PRIMARY KEY (id_estado)
+);
+
+INSERT INTO estado_auto (estado) VALUES
+('Nuevo'),
+('Usado'),
+('Seminuevo'),
+('Certificado'),
+('Reparado'),
+('Importado'),
+('Demo'),
+('Dañado'),
+('Recuperado'),
+('En consignación');
+
+UPDATE autos SET id_estado = 1 WHERE `ID_Vehiculo` = 1;
+UPDATE autos SET id_estado = 2 WHERE `ID_Vehiculo` = 2;
+UPDATE autos SET id_estado = 3 WHERE `ID_Vehiculo` = 3;
+UPDATE autos SET id_estado = 4 WHERE `ID_Vehiculo` = 4;
+UPDATE autos SET id_estado = 5 WHERE `ID_Vehiculo` = 5;
+UPDATE autos SET id_estado = 6 WHERE `ID_Vehiculo` = 6;
+UPDATE autos SET id_estado = 7 WHERE `ID_Vehiculo` = 7;
+UPDATE autos SET id_estado = 8 WHERE `ID_Vehiculo` = 8;
+UPDATE autos SET id_estado = 9 WHERE `ID_Vehiculo` = 9;
+UPDATE autos SET id_estado = 10 WHERE `ID_Vehiculo` = 10;
+
+
+CREATE TABLE IF NOT EXISTS traccion_auto (
+    id_traccion INT AUTO_INCREMENT,
+    traccion VARCHAR(30),
+    PRIMARY KEY (id_traccion)
+);
+
+
+INSERT INTO traccion_auto (traccion) VALUES
+('Tracción Total (AWD)'), 
+('Tracción Trasera (RWD)'),
+('Tracción Delantera (FWD)'), 
+('Tracción en las Cuatro Ruedas (4WD)'); 
+
+ALTER TABLE autos ADD COLUMN id_traccion INT REFERENCES traccion_auto(id_traccion);
+
+ALTER TABLE autos DROP COLUMN Traccion;
+
+UPDATE autos SET id_traccion = 1 WHERE `ID_Vehiculo` = 1; 
+UPDATE autos SET id_traccion = 4 WHERE `ID_Vehiculo` = 2; 
+UPDATE autos SET id_traccion = 2 WHERE `ID_Vehiculo` = 3; 
+UPDATE autos SET id_traccion = 2 WHERE `ID_Vehiculo` = 4; 
+UPDATE autos SET id_traccion = 1 WHERE `ID_Vehiculo` = 5; 
+UPDATE autos SET id_traccion = 2 WHERE `ID_Vehiculo` = 6; 
+UPDATE autos SET id_traccion = 1 WHERE `ID_Vehiculo` = 7; 
+UPDATE autos SET id_traccion = 1 WHERE `ID_Vehiculo` = 8; 
+UPDATE autos SET id_traccion = 2 WHERE `ID_Vehiculo` = 9; 
+UPDATE autos SET id_traccion = 1 WHERE `ID_Vehiculo` = 10; 
 
 
 CREATE TABLE IF NOT EXISTS Cliente (
