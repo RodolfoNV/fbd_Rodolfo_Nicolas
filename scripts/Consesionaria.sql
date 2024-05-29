@@ -1,8 +1,5 @@
 -- Active: 1716830926481@@127.0.0.1@3306@consecionaria
 
-CREATE DATABASE concesionaria;
-
-USE concesionaria;
 
 -- Creación de las tablas
 CREATE TABLE Concesionaria (
@@ -11,7 +8,7 @@ CREATE TABLE Concesionaria (
     Correo VARCHAR(50) NOT NULL,
     Telefono CHAR(15) NOT NULL,
     rol ENUM('admin', 'usuario', 'reporter') NOT NULL,
-    PRIMARY KEY(id_concesionaria)
+    PRIMARY KEY(id_concesionaria),
 );
 
 CREATE TABLE Autos (
