@@ -2,52 +2,49 @@
 
 
 -- Creación de las tablas
-CREATE TABLE Concesionaria (
-    id_concesionaria INT AUTO_INCREMENT,
-    Direccion VARCHAR(150) NOT NULL,
-    Correo VARCHAR(50) NOT NULL,
-    Telefono CHAR(15) NOT NULL,
-    rol ENUM('admin', 'usuario', 'reporter') NOT NULL,
-    PRIMARY KEY(id_concesionaria),
+CREATE TABLE IF NOT EXISTS Concesionaria  (
+    id_concesionaria INT AUTO_INCREMENT PRIMARY KEY,
+    Direccion VARCHAR(150) ,
+    Correo VARCHAR(50),
+    Telefono CHAR(15),
+    rol ENUM('admin', 'usuario', 'reporter')
 );
 
-CREATE TABLE Autos (
-    ID_Vehiculo INT AUTO_INCREMENT,
-    Marca VARCHAR(30) NOT NULL,
-    Modelo VARCHAR(30) NOT NULL,
-    Año YEAR NOT NULL,
-    Tipo VARCHAR(30) NOT NULL,
-    Color VARCHAR(30) NOT NULL,
-    Cilindraje VARCHAR(30) NOT NULL,
-    Transmision VARCHAR(30) NOT NULL,
-    Precio DECIMAL(9,2) NOT NULL,
-    Placa VARCHAR(10) NOT NULL,
-    Estado VARCHAR(10) NOT NULL,
-    Combustible VARCHAR(10) NOT NULL,
-    Traccion VARCHAR(50) NOT NULL,
-    Kilometraje INT NOT NULL,
-    PRIMARY KEY (ID_Vehiculo)
+CREATE TABLE IF NOT EXISTS Autos (
+    ID_Vehiculo INT AUTO_INCREMENT PRIMARY KEY,
+    Marca VARCHAR(30),
+    Modelo VARCHAR(30),
+    Año YEAR,
+    Tipo VARCHAR(30),
+    Color VARCHAR(30),
+    Cilindraje VARCHAR(30),
+    Transmicion VARCHAR(30),
+    Precio DECIMAL(9,2),
+    Placa VARCHAR(10),
+    Estado VARCHAR(10),
+    Combustible VARCHAR(10),
+    Traccion VARCHAR(50),
+    Kilometraje INT
 );
 
-CREATE TABLE Cliente (
-    CLIENTE_ID INT AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS Cliente (
+    CLIENTE_ID INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(30) NOT NULL,
     Apellido VARCHAR(30) NOT NULL,
-    Telefono CHAR(10) NOT NULL,
-    PRIMARY KEY (CLIENTE_ID)
+    Telefono CHAR(10) NOT NULL
+     
 );
 
-CREATE TABLE Empleado (
-    ID_Empleado INT AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS Empleado (
+    ID_Empleado INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(30) NOT NULL,
     Direccion VARCHAR(100),
     Correo VARCHAR(50),
-    Telefono CHAR(10),
-    PRIMARY KEY (ID_Empleado)
+    Telefono CHAR(10)
 );
 
-CREATE TABLE Auto_Vendido (
-    venta_id INT AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS Auto_Vendido (
+    venta_id INT AUTO_INCREMENT PRIMARY KEY,
     auto_id INT NOT NULL,
     id_propietario INT NOT NULL,
     id_concesionaria INT,
@@ -55,14 +52,13 @@ CREATE TABLE Auto_Vendido (
     Fecha_venta DATE,
     Precio_venta DECIMAL(9,2),
     Metodo_pago VARCHAR(30),
-    PRIMARY KEY (venta_id),
     FOREIGN KEY (id_concesionaria) REFERENCES Concesionaria(id_concesionaria),
     FOREIGN KEY (auto_id) REFERENCES Autos(ID_Vehiculo),
     FOREIGN KEY (id_propietario) REFERENCES Cliente(CLIENTE_ID),
     FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado)
 );
-INSERT INTO Consecionaria(
-Dirección,
+INSERT INTO concesionaria(
+Direccion,
 Correo,
 Telefono,
 rol
@@ -79,7 +75,7 @@ values
 ('Direccion 9','email8@example.com','1928653','reporter'),
 ('Direccion 10','email9@example.com','8964678','admin');
 
-INSERT INTO Autos(Marca,Modelo,Año,Tipo,Color,Cilindraje,ID_Vehiculo,Transmisión,Precio,Placa,Estado,Combustible,Tracción,Kilometraje)
+INSERT INTO Autos (Marca,Modelo,Año,Tipo,Color,Cilindraje,Transmicion,Precio,Placa,Estado,Combustible,Traccion,Kilometraje)
     
     VALUES
     ('Lamborghini','Huracan','2022','Deportivo','Varios colores disponibles','V10','Automatica',78338.57,'LMH-1234','Nuevo','Gasolina','cuatro por cuatro','0'),
