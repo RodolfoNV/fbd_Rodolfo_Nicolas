@@ -1,10 +1,7 @@
 -- Active: 1716830926481@@127.0.0.1@3306@consecionaria
---Rodolfo Nicolás Vásquez
-CREATE DATABASE Consesionaria;
+
+
 -- Creación de las tablas
-USE Consesionaria
-
-
 CREATE TABLE IF NOT EXISTS Concesionaria  (
     id_concesionaria INT AUTO_INCREMENT PRIMARY KEY,
     Direccion VARCHAR(150) ,
@@ -166,7 +163,8 @@ CREATE TABLE IF NOT EXISTS Cliente (
     CLIENTE_ID INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(30) NOT NULL,
     Apellido VARCHAR(30) NOT NULL,
-    Telefono CHAR(10) NOT NULL
+    Telefono CHAR(10) NOT NULL,
+    Direccion VARCHAR(50) NOT NULL
      
 );
 
@@ -239,19 +237,19 @@ INSERT INTO Autos (Marca,Modelo,Año,Tipo,Color,Cilindraje,Transmicion,Precio,Pl
     ('Maserati','MC20','2022','Supercar','Varios colores disponibles','3.0L V6','Automática', 232429.95,'MST-1234', 'Nuevo', 'Gasolina', 'Tracción trasera', '0'),
     ('Porsche','911 Spyder','2022','Supercar','Varios colores disponibles','3.0L H6','Automática', 290000.00, 'PSE-1234', 'Nuevo', 'Gasolina', 'Tracción en las cuatro ruedas', '0');
    
-   INSERT INTO Cliente(Nombre,Apellido,Telefono)
+   INSERT INTO Cliente(Nombre,Apellido,Telefono,Direccion)
    
    VALUES
-   ( 'John', 'Doe', '1235679'),
-   ( 'Jane', 'Smith', '1235680'),
-   ( 'Robert', 'Johnson', '1235681'),
-   ( 'Michael', 'Williams', '1235682'),
-   ( 'Sarah', 'Jones', '1235683'),
-   ( 'Emma', 'Brown', '1235684'),
-   ( 'Emily', 'Davis', '1235685'),
-   ( 'Daniel', 'Miller', '1235686'),
-   ( 'David', 'Wilson', '1235687'),
-   ( 'Olivia', 'Moore', '1235688');
+     ('Juan', 'Pérez', '1235679', 'Av. Reforma 123, Ciudad de México, CDMX'),
+     ('María', 'González', '1235680', 'Calle 5 de Mayo 456, Puebla, PUE'),
+     ('José', 'Hernández', '1235681', 'Av. Juárez 789, Guadalajara, JAL'),
+     ('Luis', 'Martínez', '1235682', 'Calle Hidalgo 101, Monterrey, NLE'),
+     ('Ana', 'López', '1235683', 'Av. Revolución 202, Tijuana, BCN'),
+     ('Marta', 'Sánchez', '1235684', 'Calle Insurgentes 303, Querétaro, QRO'),
+     ('Lucía', 'Ramírez', '1235685', 'Av. Universidad 404, Toluca, MEX'),
+     ('Daniel', 'Flores', '1235686', 'Calle Morelos 505, Mérida, YUC'),
+     ('David', 'García', '1235687', 'Av. Chapultepec 606, Cancún, QROO'),
+     ('Sofía', 'Vázquez', '1235688', 'Calle Allende 707, León, GTO');
    
 INSERT INTO Empleado (Nombre, Direccion, Correo, Telefono) 
    VALUES 
