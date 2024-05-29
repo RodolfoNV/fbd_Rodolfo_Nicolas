@@ -16,7 +16,8 @@ CREATE TABLE IF NOT EXISTS Autos (
     Modelo VARCHAR(30),
     Año YEAR,
     Tipo VARCHAR(30),
-    Color VARCHAR(30),
+    id_color int REFERENCES color_auto(id_color),
+    Color VARCHAR(30), -- rojo, verde
     Cilindraje VARCHAR(30),
     Transmicion VARCHAR(30),
     Precio DECIMAL(9,2),
@@ -26,6 +27,39 @@ CREATE TABLE IF NOT EXISTS Autos (
     Traccion VARCHAR(50),
     Kilometraje INT
 );
+
+ALTER Table autos add COLUMN id_color int REFERENCES color_auto(id_color);
+ALTER Table autos drop COLUMN Color; 
+
+create table color_auto (
+    id_color INT AUTO_INCREMENT,
+    color VARCHAR(30),
+    PRIMARY KEY (id_color)
+);
+
+INSERT INTO color_auto(color) values
+('rojo'),
+('verde'),
+('azul'),
+('amarillo'),
+('naranja'),
+('morado'),
+('rosa'),
+('marrón'),
+('negro'),
+('blanco');
+
+UPDATE autos SET id_color = 1 WHERE `ID_Vehiculo` = 1;
+UPDATE autos SET id_color = 2 WHERE `ID_Vehiculo` = 2;
+UPDATE autos SET id_color = 3 WHERE `ID_Vehiculo` = 3;
+UPDATE autos SET id_color = 4 WHERE `ID_Vehiculo` = 4;
+UPDATE autos SET id_color = 5 WHERE `ID_Vehiculo` = 5;
+UPDATE autos SET id_color = 6 WHERE `ID_Vehiculo` = 6;
+UPDATE autos SET id_color = 7 WHERE `ID_Vehiculo` = 7;
+UPDATE autos SET id_color = 8 WHERE `ID_Vehiculo` = 8;
+UPDATE autos SET id_color = 9 WHERE `ID_Vehiculo` = 9;
+UPDATE autos SET id_color = 10 WHERE `ID_Vehiculo` = 10;
+
 
 CREATE TABLE IF NOT EXISTS Cliente (
     CLIENTE_ID INT AUTO_INCREMENT PRIMARY KEY,
@@ -242,4 +276,4 @@ WHERE EXISTS (
 SELECT Nombre, Apellido
 FROM Cliente
 ORDER BY Nombre DESC
-OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY;
+LIMIT 10 OFFSET 10;
