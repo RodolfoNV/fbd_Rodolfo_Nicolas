@@ -57,6 +57,21 @@ CREATE TABLE IF NOT EXISTS Auto_Vendido (
     FOREIGN KEY (id_propietario) REFERENCES Cliente(CLIENTE_ID),
     FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado)
 );
+
+INSERT INTO auto_vendido
+(auto_id, id_propietario, id_concesionaria, ID_Empleado, Fecha_venta, Precio_venta,Metodo_pago  )
+VALUES
+(1, 1, 1, 1, '2023-01-15',25000.00, 'Tarjeta de crédito'),
+(2, 2, 2, 2, '2023-02-10',30000.00, 'Efectivo'),
+(3, 3, 3, 3, '2023-03-05',27000.00, 'Transferencia bancaria'),
+(4, 4, 4, 4, '2023-04-20',35000.00, 'Tarjeta de crédito'),
+(5, 5, 5, 5, '2023-05-25',32000.00, 'Efectivo'),
+(6, 6, 6, 6, '2023-06-30',29000.00, 'Transferencia bancaria'),
+(7, 7, 7, 7, '2023-07-15',26000.00, 'Tarjeta de crédito'),
+(8, 8, 8, 8, '2023-08-10',33000.00, 'Efectivo'),
+(9, 9, 9, 9, '2023-09-05',28000.00, 'Transferencia bancaria'),
+(10, 10, 10, 10, '2023-10-20',34000.00, 'Tarjeta de crédito');
+
 INSERT INTO concesionaria(
 Direccion,
 Correo,
