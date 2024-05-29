@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS Autos (
     Combustible VARCHAR(10),
     id_traccion VARCHAR REFERENCES traccion_auto(id_traccion),
     Traccion VARCHAR(50), -- Tracción en las cuatro ruedas, tracción trasera, tracción en las cuatro ruedas, tracción en las cuatro ruedas
+    id_kilometraje VARCHAR REFERENCES kilometraje_auto(id_kilometraje)
     Kilometraje INT
 );
 
@@ -158,6 +159,39 @@ UPDATE autos SET id_traccion = 1 WHERE `ID_Vehiculo` = 8;
 UPDATE autos SET id_traccion = 2 WHERE `ID_Vehiculo` = 9; 
 UPDATE autos SET id_traccion = 1 WHERE `ID_Vehiculo` = 10; 
 
+CREATE TABLE kilometraje_auto (
+    id_kilometraje INT AUTO_INCREMENT,
+    kilometraje INT,
+    PRIMARY KEY (id_kilometraje)
+);
+
+ALTER TABLE autos ADD COLUMN id_kilometraje VARCHAR(50) REFERENCES kilometraje_auto(id_kilometraje);
+
+
+ALTER TABLE autos DROP COLUMN Kilometraje;
+
+INSERT INTO kilometraje_auto (kilometraje) VALUES
+(00000),
+(20000),
+(30000),
+(40000),
+(50000),
+(60000),
+(70000),
+(80000),
+(90000),
+(100000);
+
+UPDATE autos SET id_kilometraje = '1' WHERE ID_Vehiculo = 1;
+UPDATE autos SET id_kilometraje = '2' WHERE ID_Vehiculo = 2;
+UPDATE autos SET id_kilometraje = '3' WHERE ID_Vehiculo = 3;
+UPDATE autos SET id_kilometraje = '4' WHERE ID_Vehiculo = 4;
+UPDATE autos SET id_kilometraje = '5' WHERE ID_Vehiculo = 5;
+UPDATE autos SET id_kilometraje = '6' WHERE ID_Vehiculo = 6;
+UPDATE autos SET id_kilometraje = '7' WHERE ID_Vehiculo = 7;
+UPDATE autos SET id_kilometraje = '8' WHERE ID_Vehiculo = 8;
+UPDATE autos SET id_kilometraje = '9' WHERE ID_Vehiculo = 9;
+UPDATE autos SET id_kilometraje = '10' WHERE ID_Vehiculo = 10;
 
 CREATE TABLE IF NOT EXISTS Cliente (
     CLIENTE_ID INT AUTO_INCREMENT PRIMARY KEY,
