@@ -1,5 +1,5 @@
 -- Active: 1716830926481@@127.0.0.1@3306@consecionaria
-
+--Rodolfo Nicolás Vásquez
 CREATE DATABASE Consesionaria;
 -- Creación de las tablas
 USE Consesionaria
