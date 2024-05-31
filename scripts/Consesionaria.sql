@@ -17,17 +17,17 @@ CREATE TABLE IF NOT EXISTS Autos (
     Año YEAR,
     Tipo VARCHAR(30),
     id_color int REFERENCES color_auto(id_color),
-    Color VARCHAR(30), -- rojo, verde
+    --Color VARCHAR(30), -- rojo, verde
     Cilindraje VARCHAR(30),
     id_transmision VARCHAR REFERENCES transmision_auto(id_transmision),
-    Transmicion VARCHAR(30),-- manual, automatica, etc
+    --Transmicion VARCHAR(30),-- manual, automatica, etc
     Precio DECIMAL(9,2),
     Placa VARCHAR(10),
     id_estado VARCHAR REFERENCES estado_auto(id_estado,)
-    Estado VARCHAR(10), -- nuevo, usado, etc
+    --Estado VARCHAR(10), -- nuevo, usado, etc
     Combustible VARCHAR(10),
     id_traccion VARCHAR REFERENCES traccion_auto(id_traccion),
-    Traccion VARCHAR(50), -- Tracción en las cuatro ruedas, tracción trasera, tracción en las cuatro ruedas, tracción en las cuatro ruedas
+   -- Traccion VARCHAR(50), -- Tracción en las cuatro ruedas, tracción trasera, tracción en las cuatro ruedas, tracción en las cuatro ruedas
     id_kilometraje VARCHAR REFERENCES kilometraje_auto(id_kilometraje)
     Kilometraje INT
 );
